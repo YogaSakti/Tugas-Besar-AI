@@ -1,0 +1,81 @@
+<html>
+<head>
+    <link href="https://getbootstrap.com/docs/3.4/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <style type="text/css">body {background: rgba(194, 132, 16, 0.603) !important;}</style>
+</head>
+<body>
+    <center><h1 style="color:rgb(61, 61, 61);">Penentuan Bantuan RUTILAHU (Rumah Tidak Layak Huni)</h1></center><br>
+    <div class="container">
+        <div class="col-md-6">
+            <div class="alert alert-success">
+                <form action="" method="post">
+                    <div class="form-group">
+                        <label for="name">Jenis Lantai Marmer:</label>
+                        <input id="marmer" name="marmer" type="number" class="form-control" placeholder="Banyaknya Rumah dengan Jenis Lantai Marmer">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Jenis Lantai Semen:</label>
+                        <input id="semen" name="semen" type="number" class="form-control" placeholder="Banyaknya Rumah dengan Jenis Lantai Semen">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Jenis Lantai Kayu</label>
+                        <input id="kayu" name="kayu" type="number" class="form-control" placeholder="Banyaknya Rumah dengan Jenis Lantai Kayu">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Jenis Lantai Lainnya:</label>
+                        <input id="lain" name="lain" type="number" class="form-control" placeholder="Banyaknya Rumah dengan Jenis Lantai Lainnya">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Fasilitas BAB Sendiri:</label>
+                        <input id="jambansendiri" name="jambansendiri" type="number" class="form-control"
+                            placeholder="Banyaknya Rumah dengan Jenis Jamban Sendiri">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Fasilitas BAB Bersama:</label>
+                        <input id="jambanbersama" name="jambanbersama" type="number" class="form-control"
+                            placeholder="Banyaknya Rumah dengan Jenis Jamban Bersama">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Daya Listrik 450w:</label>
+                        <input id="w450" name="w450" type="number" class="form-control" placeholder="Banyaknya Rumah dengan Daya Listrik 450w">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Daya Listrik 900w:</label>
+                        <input id="w900" name="w900" type="number" class="form-control" placeholder="Banyaknya Rumah dengan Daya Listrik 900w">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Daya Listrik 1300w:</label>
+                        <input id="w1300" name="w1300" type="number" class="form-control" placeholder="Banyaknya Rumah dengan Daya Listrik 1300w">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Daya Listrik 2200w:</label>
+                        <input id="w2200" name="w2200" type="number" class="form-control" placeholder="Banyaknya Rumah dengan Daya Listrik 2200w">
+                    </div>
+                    <button type="submit" class="btn btn-success">Send</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">Keterangan:</h4>
+                <p>Cluster [0] Merupakan Kelurahan yang terprediksi menerima bantuan RUTILAHU</p>
+                <p>Cluster [1] Merupakan Kelurahan yang terprediksi tidak menerima bantuan RUTILAHU</p>
+            </div>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            {% if "Error" not in message[1]: %}
+            <div class="alert alert-info">
+                <strong>Hasil perhitungan menunjukan data berada pada Cluster: {{ message }} </strong> </div>
+            {% endif %}
+            {% if "Error" in message[1]: %}
+            <div class="alert alert-warning">
+                {{ message[1] }}</div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+</body>
